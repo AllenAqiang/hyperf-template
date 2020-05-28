@@ -1,36 +1,30 @@
-# Introduction
+# 介绍
 
-This is a skeleton application using the Hyperf framework. This application is meant to be used as a starting place for those looking to get their feet wet with Hyperf Framework.
+Hyperf-template 基于Hyperf v1.1 框架的开发模版
 
-# Requirements
+## 使用
 
-Hyperf has some requirements for the system environment, it can only run under Linux and Mac environment, but due to the development of Docker virtualization technology, Docker for Windows can also be used as the running environment under Windows.
+    composer update
 
-The various versions of Dockerfile have been prepared for you in the [hyperf\hyperf-docker](https://github.com/hyperf/hyperf-docker) project, or directly based on the already built [hyperf\hyperf](https://hub.docker.com/r/hyperf/hyperf) Image to run.
+## 介绍
 
-When you don't want to use Docker as the basis for your running environment, you need to make sure that your operating environment meets the following requirements:  
+    基于hyperf-skeleton进行了改装。
+    加入了：
+    1. jwt鉴权：支持单点登录、多点登录、支持注销token(token会失效)、支持刷新token  
+    详细点击 https://github.com/PHP-OPEN-HUB/hyperf-jwt
+    
+    2. 常用方法的封装：包括api响应，快速抛出异常，入消息队列等（在app/Helper/Functions.php）
+    
+    3. 常用枚举类
+    
+    4. 异常处理：业务层抛出异常和异常捕获处理
+    
+    5. 封装了验证器：在controller更方便的去使用验证器
+    
+    6. Model层分级处理： Entity -> Dao -> Logic -> Service
+    
+    7. Http下包含Controller 和 Middleware文件
+    
+##  目的
 
- - PHP >= 7.2
- - Swoole PHP extension >= 4.4，and Disabled `Short Name`
- - OpenSSL PHP extension
- - JSON PHP extension
- - PDO PHP extension （If you need to use MySQL Client）
- - Redis PHP extension （If you need to use Redis Client）
- - Protobuf PHP extension （If you need to use gRPC Server of Client）
-
-# Installation using Composer
-
-The easiest way to create a new Hyperf project is to use Composer. If you don't have it already installed, then please install as per the documentation.
-
-To create your new Hyperf project:
-
-$ composer create-project hyperf/hyperf-skeleton path/to/install
-
-Once installed, you can run the server immediately using the command below.
-
-$ cd path/to/install
-$ php bin/hyperf.php start
-
-This will start the cli-server on port `9501`, and bind it to all network interfaces. You can then visit the site at `http://localhost:9501/`
-
-which will bring up Hyperf default home page.
+    封装的都是基础组件，让开发者更快速上手使用hyperf框架。
